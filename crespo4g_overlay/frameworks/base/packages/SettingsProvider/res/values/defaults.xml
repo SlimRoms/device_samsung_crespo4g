@@ -19,4 +19,5 @@
 <resources>
     <!-- Comma-separated list of bluetooth, wifi, and cell. -->
     <string name="def_airplane_mode_radios" translatable="false">cell,bluetooth,wifi,wimax,nfc</string>
+    <string name="def_backup_transport">com.google.android.backup/.BackupTransportService</string>
 </resources>
