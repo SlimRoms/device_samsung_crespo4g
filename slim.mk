@@ -34,9 +34,9 @@ PRODUCT_RELEASE_NAME := crespo4g
 # Use build.prop values similar to Google's values
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=sojus \
-    BUILD_FINGERPRINT="google/sojus/crespo4g:4.2.1/JOP40D/533553:user/release-keys" \
-    PRIVATE_BUILD_DESC="sojus-user 4.2.1 JOP40D 533553 release-keys" \
-    BUILD_NUMBER=533553
+    BUILD_FINGERPRINT="google/sojus/crespo4g:4.1.2/JZO54K/485486:user/release-keys" \
+    PRIVATE_BUILD_DESC="sojus-user 4.1.2 JZO54K 485486 release-keys" \
+    BUILD_NUMBER=485486
 
 PRODUCT_NAME := slim_crespo4g
 PRODUCT_DEVICE := crespo4g
