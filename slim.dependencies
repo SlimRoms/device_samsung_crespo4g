@@ -1,5 +1,10 @@
 [
     {
+        "repository":   "SlimRoms/device_samsung_crespo",
+        "target_path":  "device/samsung/crespo",
+        "branch":     "jb4.2"
+    },
+    {
         "repository":   "SlimRoms/proprietary_vendor_samsung",
         "target_path":  "vendor/samsung",
         "branch":     "jb4.2"
