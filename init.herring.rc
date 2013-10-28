@@ -1,12 +1,10 @@
 import init.herring.usb.rc
-import init.superuser.rc
 
 on boot
     mount debugfs /sys/kernel/debug /sys/kernel/debug
 
     setprop ro.build.product herring
     setprop ro.product.device herring
-    setprop ro.radio.noril yes
     setprop ro.bt.bdaddr_path "/efs/bluetooth/bt_addr"
 
 # fake some battery state
@@ -30,6 +28,7 @@ on boot
 
 # create data/gps for GPS demon
     mkdir /data/gps 770 gps system
+    restorecon /data/gps
     chown gps system /data/gps
 
 # cpufreq, set ondemand governor
@@ -38,8 +37,9 @@ on boot
 on fs
     mkdir /efs 0775 radio radio
     mount yaffs2 mtd@efs /efs nosuid nodev
-	chmod 770 /efs/bluetooth
-	chmod 770 /efs/imei
+    chmod 770 /efs/bluetooth
+    chmod 770 /efs/imei
+    restorecon /efs
     mount_all /fstab.herring
 
     export EXTERNAL_STORAGE /storage/sdcard0
@@ -145,6 +145,14 @@ service iprenew_uwbr0 /system/bin/dhcpcd -n
 # bluetooth
 service iprenew_bnep0 /system/bin/dhcpcd -n
     class main
+    disabled
+    oneshot
+
+service hciattach /system/bin/brcm_patchram_plus --enable_hci --enable_lpm \
+    --baudrate 3000000 --patchram /vendor/firmware/bcm4329.hcd /dev/s3c2410_serial0
+    class main
+    user bluetooth
+    group bluetooth net_bt_admin
     disabled
     oneshot
 

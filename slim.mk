@@ -1,5 +1,9 @@
 $(call inherit-product, device/samsung/crespo4g/full_crespo4g.mk)
 
+# Boot animation
+TARGET_SCREEN_HEIGHT := 800
+TARGET_SCREEN_WIDTH := 480
+
 # Inherit some common stuff.
 $(call inherit-product, vendor/slim/config/cdma.mk)
 
@@ -11,10 +15,6 @@ $(call inherit-product, vendor/slim/config/common_nexus.mk)
 
 # Inherit torch settings
 $(call inherit-product, vendor/slim/config/common_ledflash.mk)
-
-#bootanimation
-PRODUCT_COPY_FILES +=  \
-    vendor/slim/prebuilt/hdpi/bootanimation.zip:system/media/bootanimation.zip
 
 #copy modified lights.s5pc110.so for BLN support
 PRODUCT_COPY_FILES += \
